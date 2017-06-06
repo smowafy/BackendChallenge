@@ -1,0 +1,30 @@
+For insertion (POST):
+    Fields required in the request body JSON:
+	- application_token
+	- priority
+	- comment
+	- state :
+		- device
+		- os
+		- memory
+		- storage
+
+    Example:
+	curl -XPOST 'http://localhost:3000/bugs' -H 'Content-Type: application/json' -d '{
+			"application_token" : 4,
+			"priority" : "critical",
+			"comment" : "A dummy comment",
+			"state" : {
+				"device" : "iPhone 6",
+				"os" : "iOS 7",
+				"memory" : 1024,
+				"storage" : 20480
+			}
+		}'
+
+For querying(GET):
+    The application token is added as a query string "apptoken", the bug number is in the URL as stated.
+    Example:
+	curl -XGET 'http://localhost:3000/bugs/1?apptoken=4'
+
+		

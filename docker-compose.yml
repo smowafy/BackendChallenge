@@ -1,0 +1,25 @@
+version: '2'
+services:
+  app:
+    build: .
+    command: bash -c "chmod +x railsinit.sh && ./railsinit.sh"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - rabbitmq
+      - elasticsearch
+  postgres:
+    image: postgres
+    ports:
+      - "14320:5432"
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - "14321:5672"
+  elasticsearch:
+    image: elasticsearch
+    ports:
+      - "14322:9200"

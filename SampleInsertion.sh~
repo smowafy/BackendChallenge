@@ -1,0 +1,1 @@
+curl -XPOST 'http://localhost:3000/bugs' -H 'Content-Type: application/json' -d '{ "application_token" : 4, "priority" : "critical", "comment" : "bla bla", "state" : { "device" : "iPhone 5", "os" : "iOS 7", "memory" : 1024, "storage" : 20480 } }'
